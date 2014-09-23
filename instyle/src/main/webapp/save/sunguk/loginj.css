@@ -1,0 +1,55 @@
+@CHARSET "UTF-8";
+
+.body{
+  background-color : #4b399e;
+  
+}
+.head{
+  padding : 0 ;
+  margin :  70px 0 70px 0   ;
+  font-size : 60px ;
+  color : white;
+  text-align: center;
+}
+
+.ment{
+  padding : 0px 50px 70px 50px ;
+  font-size : 18px ;
+  color : white;
+  text-align: center;
+   display: block;
+}
+
+.find{
+  margin : 0px 0px 20px 0px  ;
+  font-size : 25px ;
+  text-align: center;
+}
+
+.col-xs-4{
+  color : #4b399e;
+  margin :1px;
+  text-align: center;
+  
+}
+
+.formset{
+  margin-bottom : 17px;
+  
+}
+
+.form-group {
+  margin-bottom : 4px
+}
+
+.col-xs-8 {
+ padding : 1px;
+}
+
+.modal-title{
+color : #4b399e;
+}
+
+.modal-body{
+padding : 50px 0 40px 0;
+}

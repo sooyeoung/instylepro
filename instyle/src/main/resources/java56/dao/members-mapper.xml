@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="java56.dao.MemberDao">
+
+  <resultMap type="member" id="memberMap">
+    <id column="memno" property="no"/>
+    <result column="mem_sort" property="memSort"/>
+    <result column="id" property="id"/>
+    <result column="pwd" property="password"/>
+    <result column="name" property="name"/>
+    <result column="email" property="email"/>
+    <result column="profile_photo" property="profilePhoto"/>
+    <result column="activation" property="activation"/>
+    <result column="totallike_no" property="totallikeNo"/>
+    <result column="fe_male" property="female"/>
+  </resultMap>
+  
+<!--   <select id="exist" parameterType="map" resultMap="memberMap">
+    select s.mno, m.name, m.email, s.working
+    from students s left outer join members m using(mno)
+    where m.email=#{email} and m.pwd=#{password}
+  </select> -->
+  
+  <!--로그인 부분 주은0829  -->
+  <select id="exist" parameterType="map" resultMap="memberMap">
+    select memno from member where email=#{email} and pwd=#{password}
+  </select>   
+  
+  <!-- 회원가입 부분 수영0829  -->
+  <insert id="insert" parameterType="member"
+      useGeneratedKeys="true" keyColumn="memno" keyProperty="no">
+    insert into member (mem_sort, id, pwd, name, email, profile_photo, activation, totallike_no, fe_male)
+    values (#{memSort},#{id},#{password},#{name},#{email},#{profilePhoto},#{activation},#{totallikeNo},
+            #{female})
+  </insert>
+
+
+
+
+
+
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+

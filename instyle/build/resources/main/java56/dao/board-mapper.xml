@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="java56.dao.BoardDao">
+
+  <resultMap type="board" id="boardMap">
+    <id column="boardno" property="boardNo"/>
+    <id column="memno" property="no"/>
+    <result column="board_photo" property="boardPhoto"/>
+    <result column="board_time" property="boardTime"/>
+    <result column="profile_photo" property="profilePhoto"/>
+    <result column="follow_yn" property="followYn"/>
+    <result column="board_content" property="boardContent"/>
+    <result column="style_tag" property="styleTag"/>
+    <result column="board_level" property="boardLevel"/>
+    <result column="open_yn" property="openYn"/>
+    <result column="malelike_no" property="malelikeNo"/>
+    <result column="femalelike_no" property="femalelikeNo"/>
+  </resultMap>
+  
+  <select id="exist" parameterType="map" resultMap="boardMap">
+    select b.memno, m.email, m.id, b.board_content
+    from board b left outer join member m
+    where m.email=#{email} and m.pwd=#{password}
+  </select> 
+  
+  <insert id="insert" parameterType="board">
+    insert into board (
+            memno, board_photo, board_time, 
+            profile_photo, follow_yn, board_content, style_tag, board_level,
+            open_yn, malelike_no, femalelike_no)
+    values (
+            #{no}, #{boardPhoto}, #{boardTime},
+            #{profilePhoto}, #{followYn}, #{boardContent}, #{styleTag}, 
+            #{boardLevel}, #{openYn}, #{malelikeNo}, #{femalelikeNo})
+  </insert>
+  
+  </mapper>
